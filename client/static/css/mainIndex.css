@@ -1,0 +1,11 @@
+html, body{
+}
+
+.splash{
+    padding-top: 50px;
+}
+
+#mainContent{
+    height: 800px;
+    background-color: white;
+}

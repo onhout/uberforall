@@ -1,0 +1,46 @@
+//
+   Created by pl on 5/30/15.
+
+block title
+    title Front End
+block content
+    nav.navbar.navbar-inverse
+        .container
+            .navbar-header
+                button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbarCollapse")
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href="#/"): img#smalllogo(src="img/uber.png")
+            .collapse.navbar-collapse#navbarCollapse
+                ul.nav.navbar-nav
+                    li: a(href="#/main") Address Books
+                ul.nav.navbar-nav.navbar-right
+                    li: a(href="#/") Logout
+    .container(ng-controller="mainController")
+        .col-md-8.col-md-offset-2
+            .jumbotron
+                h1 Addresses.
+                a(href="" ng-click="addAddress = !addAddress") Add a new address
+                #addField.form-inline(ng-init="addAddress=false" ng-show="addAddress")
+                    form#ngAddress(name="ngAddress" novalidate)
+                        .form-group(ng-class="{'has-error': ngAddress.addressName.$invalid && ngAddress.addressName.$touched}")
+                            label(for="addressName") Alias:
+                            input#addressName.form-control(type="text" name="addressName" ng-model="address.name" placeholder="Home" required)
+                        .form-group(ng-class="{'has-error': ngAddress.Address.$invalid && ngAddress.Address.$touched} ")
+                            label(for="address") Address:
+                            input#address.form-control(type="text" name="Address" ng-model="address.address" placeholder="1980 Zanker Rd" required)
+                        .form-group
+                            button.btn.btn-primary(type="button" ng-disabled="ngAddress.$invalid" ng-click="addAddressFun()") Add
+                table.table
+                    thead
+                        tr
+                            th Name
+                            th Address
+                    tbody
+                        tr(ng-repeat="address in addresses")
+                            td {{address.name}}
+                            td.addr {{address.address}}
+
+

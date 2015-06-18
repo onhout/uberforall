@@ -1,0 +1,45 @@
+//
+   Created by pl on 5/30/15.
+
+block title
+    title Front End
+block content
+    nav.navbar.navbar-inverse
+        .container
+            .navbar-header
+                button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbarCollapse")
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href="#/"): img#smalllogo(src="img/uber.png")
+            .collapse.navbar-collapse#navbarCollapse
+                ul.nav.navbar-nav
+                    li: a(href="#/register") Register
+                    li: a(href="#/login") Login
+    .container(ng-controller="registerController")
+        .row
+            .col-md-8.col-md-offset-2
+                .jumbotron
+                    h1 Sign Up.
+                    form#registerForm(name="registerForm" novalidate)
+                        .form-group(ng-class="{'has-error': registerForm.name.$invalid && registerForm.name.$touched}")
+                            input#name.form-control.input-lg(type="text" placeholder="Name" name="name" ng-model="info.name" ng-minlength=2 required)
+                            span.text-danger(ng-show="registerForm.name.$error.required && registerForm.name.$touched") (Required)
+                            span.text-danger(ng-show="registerForm.name.$error.minlength") Too Short
+                        .form-group(ng-class="{'has-error': registerForm.email.$invalid && registerForm.email.$touched}")
+                            input#email.form-control.input-lg(type="email" placeholder="Email" name="email" ng-model="info.email" required)
+                            span.text-danger(ng-show="registerForm.email.$error.required && registerForm.email.$touched") (Required)
+                            span.text-danger(ng-show="registerForm.email.$error.email") This is not a valid Email
+                        .form-group(ng-class="{'has-error': registerForm.password.$invalid && registerForm.password.$touched}")
+                            input#password.form-control.input-lg(type="password" placeholder="Password" name="password" ng-model="password" required)
+                            span.text-danger(ng-show="registerForm.password.$error.required && registerForm.password.$touched") (Required)
+                        .form-group(ng-class="{'has-error': registerForm.confirmpw.required && registerForm.confirmpw.$touched}")
+                            input#confirmpw.form-control.input-lg(type="password" placeholder="Confirm Password" ng-model="confirmpw" name="confirmpw" pw-confirm="password" required)
+                            span.text-danger(ng-show="registerForm.confirmpw.$error.pwMatch") Passwords didn't match
+                        .form-group(ng-class="{'has-error': registerForm.phoneNumber.$invalid && registerForm.phoneNumber.$touched}")
+                            input#phoneNumber.form-control.input-lg(type="text" placeholder="Phone Number" ng-model="info.phoneNumber" name="phoneNumber" ng-minlength=10 ng-maxlength=10 required)
+                            span.text-danger(ng-show="registerForm.phoneNumber.$error.required && registerForm.phoneNumber.$touched") (Required)
+                            span.text-danger(ng-show="registerForm.phoneNumber.$error.minlength && registerForm.phoneNumber.$error.maxlength") Please Enter a 10 digit number
+                        .form-group
+                            button.btn.btn-primary.btn-lg(type="button" ng-disabled="registerForm.$invalid" ng-click="register()") Sign Up!

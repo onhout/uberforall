@@ -1,0 +1,42 @@
+html, body{
+    font-family: 'Open Sans', sans-serif;
+    background: url('../img/fullpage.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#smalllogo{
+    transform: rotate(0.25turn);
+    width: 20px;
+    height: 20px;
+}
+
+#biglogo{
+    transform: rotate(0.5turn);
+}
+
+.splash{
+    font-size: 100px;
+    color:teal;
+    font-weight: bold;
+}
+
+.jumbotron{
+    margin-top: 100px;
+    background: rgba(128, 128, 128, 0.7);
+}
+
+.table{
+    background: rgba(222, 222, 222, 0.8);
+}
+
+th{
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+#addField > *{
+    padding: 5px 0;
+}
+
