@@ -20,6 +20,6 @@ app.use(express.static(path.join(__dirname + '/client/views')));
 
 
 
-app.listen(1337, function(){
+app.listen(process.env.PORT || 1337, function(){
     console.log('Server start');
 });
