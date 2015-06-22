@@ -1,6 +1,7 @@
+require('../config/mongoose.js');
 var mongoose=require('mongoose');
 var User=mongoose.model('User');
-module.exports=(function(){
+/*module.exports=(function(){
 	return {
 		add:function(req,res){
 			var new_user=new User({
@@ -34,7 +35,20 @@ module.exports=(function(){
 			})
 		}
 	}
-})();
+})();*/
+
+exports.add = function(req, res){
+	new User({
+		name: req.body.name,
+		email:req.body.email,
+		password:req.body.password,
+		phone:req.body.phoneNumber,
+		pin:req.body.pin
+	}).save(function(err, result){
+			if (err) res.status(400).send(err.errors);
+			else res.json(result);
+		})
+};
 
 // exports.add=function(req,res){
 // 	var new_user=new User({

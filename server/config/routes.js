@@ -29,21 +29,13 @@ module.exports=function(app){
     });
 
     //BE
-	app.post('/register',function(req,res){
-		register_users.add(req,res);
-	});
+	app.post('/register',register_users.add);
 
-	app.post('/login',function(req,res){
-		login_users.login(req,res);
-	});
+	app.post('/login',login_users.login);
 
-    app.post('/addAddress', function(req,res){
-        add_address.add_address(req, res);
-    });
+    app.post('/addAddress', add_address.add_address);
 
-    app.post('/getAddresses', function(req, res){
-        add_address.get_address(req, res);
-    });
+    app.post('/getAddresses', add_address.get_address);
 
 	app.post('/update_users',function(req,res){
 		update_users.update(req,res);
