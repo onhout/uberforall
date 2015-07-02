@@ -39,5 +39,7 @@ module.exports=function(app){
 
 	app.post('/update_users',function(req,res){
 		update_users.update(req,res);
-	})
-}
+	});
+
+    app.post('/register_text', register_users.textPin);
+};
