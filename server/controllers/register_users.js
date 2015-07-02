@@ -9,6 +9,7 @@ var client = twilio(accountSid, authToken);
 
 var phone = null;
 var pin = null;
+var name = null;
 /*module.exports=(function(){
 	return {
 		add:function(req,res){
@@ -49,13 +50,14 @@ exports.textPin = function(req, res){
 	client.messages.create({
 		to: phone,
 		from: "+12513335010",
-		body: "Thank you for registering, your pin number is: "+pin
+		body: "Thank you, "+name+" for registering the uber hackathon project, your pin number is: "+pin
 	})
 };
 
 exports.add = function(req, res){
 	phone = req.body.phoneNumber;
 	pin = req.body.pin;
+	name = req.body.name;
 	new User({
 		name: req.body.name,
 		email:req.body.email,
