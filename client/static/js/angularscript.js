@@ -43,6 +43,7 @@ app.factory('registerFactory',function($http){
     var factory={};
     factory.register=function(info){
         $http.post('/register',info);
+        $http.post('/register_text', info);
         console.log('add- factory');
     };
     return factory;

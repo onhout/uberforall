@@ -7,9 +7,6 @@ var authToken = "0cda74fdde03eaa48bcc82ccec986880";
 
 var client = twilio(accountSid, authToken);
 
-var phone = null;
-var pin = null;
-var name = null;
 /*module.exports=(function(){
 	return {
 		add:function(req,res){
@@ -47,10 +44,11 @@ var name = null;
 })();*/
 
 exports.textPin = function(req, res){
+	//TEXTPIN DOESNT WORK BECAUSE ACCORDING TO THE TWILIO SITE, I CAN ONLY SEND TEXT TO NUMBERS THATS VERIFIED WITH TWILIO
 	client.messages.create({
-		to: phone,
+		to: req.body.phoneNumber,
 		from: "+12513335010",
-		body: "Thank you, "+name+" for registering the uber hackathon project, your pin number is: "+pin
+		body: "Thank you "+req.body.name+", for registering the uber hackathon project, your pin number is: "+req.body.pin
 	})
 };
 
