@@ -94,7 +94,7 @@ exports.add = function(req, res){
 // 					})
 // 				}
 // 				else{
-// 					console.log('user email allready in use');
+// 					console.log('user email already in use');
 // 				}
 // 			})
 // }
